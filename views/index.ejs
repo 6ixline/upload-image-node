@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload data</title>
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+</head>
+<body>
+    <form action="/upload" method="POST">
+        <input type="file" name="image" class="filepond">
+        <button type='submit'>Submit</button>
+    </form>
+    <% imageUrl.forEach(element => { %>
+    <img src="<%= element.URL %>" alt="">
+    
+    <% }); %>
+
+
+<script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <script>
+        FilePond.registerPlugin(FilePondPluginFileEncode);
+        FilePond.parse(document.body);
+    </script>
+    
+</body>
+</html>
